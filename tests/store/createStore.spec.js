@@ -1,6 +1,6 @@
 import {default as createStore} from 'store/createStore'
 
-describe('Test de création du store redux et d\'un dispatch d\'action, () => {
+describe('Test de création du store redux et d\'un dispatch d\'action', () => {
   var store
 
 
