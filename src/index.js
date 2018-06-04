@@ -11,7 +11,7 @@ export const createRoutes = (store) => ({
   path        : '/',
   component   : PageLayout,
   indexRoute  : Home,
-  childRoutes : [Twitter
+  childRoutes : [Twitter(store),
   ]
 })
 

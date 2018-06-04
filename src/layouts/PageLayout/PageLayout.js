@@ -10,8 +10,6 @@ export const PageLayout = ({ children }) => (
     {' · '}
     <Link to='/twitter' activeClassName='page-layout__nav-item--active'>Twitter</Link>
     {' · '}
-
-
     <div className='page-layout__viewport'>
       {children}
     </div>
