@@ -60,13 +60,11 @@ class NewsList extends React.PureComponent {
                       <td>{item._source.text}</td>
                       <td>{item._source.sentiment} </td>
                       <td>{item._source.language} </td>
-
                     </tr>
                   )
                 })}
                 </tbody>
               </Table>
-
             </Col>
           </Row>
         </Grid>
