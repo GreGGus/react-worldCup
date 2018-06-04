@@ -1,5 +1,6 @@
 import PageLayout from '../layouts/PageLayout/PageLayout'
 import Home from './Home'
+import TwitterView from './Twitter'
 
 
 export const createRoutes = (store) => ({
@@ -7,6 +8,7 @@ export const createRoutes = (store) => ({
   component   : PageLayout,
   indexRoute  : Home,
   childRoutes : [
+  TwitterView
   ]
 })
 

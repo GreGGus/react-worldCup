@@ -1,6 +1,3 @@
-/**
- * Created by Gohma on 05/06/2017.
- */
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
 import {getTwitterAgg,getTwitter} from "../../services/api"
 import * as Actions from "../actions/"
