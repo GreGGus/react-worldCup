@@ -1,8 +1,6 @@
 // We only need to import the modules necessary for initial render
-import CoreLayout from '../layouts/PageLayout/PageLayout'
+import PageLayout from '../layouts/PageLayout/PageLayout'
 import Home from './Home'
-import CounterRoute from './Counter'
-import News from './News'
 import Twitter from './Twitter'
 
 
@@ -11,12 +9,9 @@ import Twitter from './Twitter'
 
 export const createRoutes = (store) => ({
   path        : '/',
-  component   : CoreLayout,
+  component   : PageLayout,
   indexRoute  : Home,
-  childRoutes : [
-    CounterRoute(store),
-    News(store),
-    Twitter(store)
+  childRoutes : [Twitter
   ]
 })
 

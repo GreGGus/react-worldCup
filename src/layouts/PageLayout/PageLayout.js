@@ -8,10 +8,9 @@ export const PageLayout = ({ children }) => (
     <h1>React World Cup</h1>
     <IndexLink to='/' activeClassName='page-layout__nav-item--active'>Home</IndexLink>
     {' · '}
-    <Link to='/page1' activeClassName='page-layout__nav-item--active'>page1</Link>
+    <Link to='/twitter' activeClassName='page-layout__nav-item--active'>Twitter</Link>
     {' · '}
 
-    <Link to='/page2' activeClassName='page-layout__nav-item--active'>page2</Link>
 
     <div className='page-layout__viewport'>
       {children}
