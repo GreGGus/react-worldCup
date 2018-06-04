@@ -1,5 +1,5 @@
 import React from 'react'
-import './HomeView.scss'
+import './TwitterView.scss'
 
 export const TwitterView = () => (
   <div>
