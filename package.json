@@ -1,5 +1,5 @@
 {
-  "name": "MIMApp",
+  "name": "React-World-Cup",
   "version": "1.0.0",
   "description": "React data viz App",
   "main": "index.js",
@@ -12,10 +12,6 @@
     "test:watch": "npm test -- --watch",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/davezuko/react-redux-starter-kit.git"
   },
   "author": "PORTIER Grégoire",
   "dependencies": {
