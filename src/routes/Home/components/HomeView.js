@@ -3,7 +3,7 @@ import './HomeView.scss'
 
 export const HomeView = () => (
   <div>
-    <h4>Page d'accueil '</h4>
+    <h4>Accueil</h4>
   </div>
 )
 
