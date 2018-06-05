@@ -7,6 +7,7 @@ See : https://github.com/GreGGus/spark-streaming-worldCup
 
 ### Project structure
 
+```
 ├── build                    # All build-related code
 ├── public                   # Static public assets 
 ├── server                   # Express server with webpack middleware
@@ -34,6 +35,7 @@ See : https://github.com/GreGGus/spark-streaming-worldCup
 │   │   └── location.js      # Example reducer location & routing
 │   └── styles               # Application-wide styles (generally settings)
 └── tests                    # Unit tests
+```
 
 
 
@@ -42,7 +44,7 @@ See : https://github.com/GreGGus/spark-streaming-worldCup
 
 `git clone`
 `cd react-worldCup`
-`npm install`
+`npm install` 
 
 
 ### Test
