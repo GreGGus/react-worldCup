@@ -13,7 +13,6 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
 return{
-  counter: state.counter,
   data: state.twitter.data,
   agregat:state.twitter.agregat
 }}

@@ -2,7 +2,7 @@ import React from "react";
 import {Grid, Col, Nav, Table, NavItem,Pagination, Row} from "react-bootstrap";
 import {getNews} from "../../../../services/api";
 import moment from "moment";
-
+import {FlippingCard,FlippingCardBack, FlippingCardFront} from 'react-ui-cards';
 
 class NewsList extends React.PureComponent {
   constructor(props) {
@@ -10,15 +10,26 @@ class NewsList extends React.PureComponent {
     this.state = {
       dataState: [],
       count:0,
-      activePage:0
+      activePage:0,
+      trigg:props.fetchNews
     }
 
   }
 
 
-  componentWillMount=() => {
+
+
+  componentWillMount=(props) => {
     this.props.fetchNews()
-    this.props.fetchNewsAgregat()
+    //this.props.fetchNewsAgregat()
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.state.trigg(), 4000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
@@ -33,11 +44,10 @@ class NewsList extends React.PureComponent {
     var buckets=[]
     if(agregat){  buckets = agregat.aggregations.tweet.buckets }else { buckets=[] }
 
-
+//      {buckets.map((item,index) => { return( <p> Twitter count : {item.key} : {item.doc_count}</p>  )})}
 
     return (
       <div>
-      {buckets.map((item,index) => { return( <p> Twitter count : {item.doc_count} : {item.key}</p>  )})}
         <Grid>
           <Row>
             <Col md={12}>
@@ -52,6 +62,7 @@ class NewsList extends React.PureComponent {
                 </tr>
                 </thead>
                 <tbody>
+
                 {realData.map((item, index) => {
                   return (
                     <tr>
@@ -75,3 +86,5 @@ class NewsList extends React.PureComponent {
   }
 }
 export default NewsList
+
+
