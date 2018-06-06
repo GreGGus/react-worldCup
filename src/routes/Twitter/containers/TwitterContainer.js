@@ -6,8 +6,8 @@ import {fetchNews, fetchNewsAgregat} from '../modules/twitter'
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchNews: () => dispatch(fetchNews())
-    ,
-    fetchNewsAgregat: () => dispatch(fetchNewsAgregat())
+     ,
+  fetchNewsAgregat: () => dispatch(fetchNewsAgregat())
   }
 }
 
