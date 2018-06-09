@@ -1,6 +1,6 @@
 import React from "react";
 import {Grid, Col, Nav, Table, NavItem,Pagination, Row} from "react-bootstrap";
-import {getNews} from "../../../../services/api";
+import {getTwitter} from "../../../../services/api";
 import moment from "moment";
 import {FlippingCard,FlippingCardBack, FlippingCardFront} from 'react-ui-cards';
 import TableTr from "../../../components/TableTr.js"
@@ -17,7 +17,7 @@ class Twitter extends React.PureComponent {
   }
 
   componentWillMount=(props) => {
-    this.props.fetchNewsAgregat()
+    this.props.fetchTwitterSentiment()
   }
 
   componentDidMount() {

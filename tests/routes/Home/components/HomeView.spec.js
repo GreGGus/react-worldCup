@@ -1,12 +1,12 @@
 import React from 'react'
-import { HomeView } from 'routes/Home/components/HomeView'
+import { HomeViewContainer } from 'routes/Home/containers/HomeViewContainer'
 import { render } from 'enzyme'
 
 describe('Test du component Home', () => {
   let _component
 
   beforeEach(() => {
-    _component = render(<HomeView />)
+    _component = render(<HomeViewContainer />)
   })
 
   it('Doit faire apparaitre Accueil', () => {

@@ -6,7 +6,7 @@ import Twitter from './Twitter'
 export const createRoutes = (store) => ({
   path        : '/',
   component   : PageLayout,
-  indexRoute  : Home,
+  indexRoute  : Home(store),
   childRoutes : [ Twitter(store) ]
 })
 

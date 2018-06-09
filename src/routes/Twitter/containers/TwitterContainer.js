@@ -1,20 +1,21 @@
 import {connect} from 'react-redux'
 import Twitter from '../components/Twitter'
-import {fetchNews, fetchNewsAgregat} from '../modules/twitter'
+import {fetchTwitterSentiment, fetchTwitterTeam,fetchTwitter} from '../modules/twitter'
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchNews: () => dispatch(fetchNews())
-     ,
-  fetchNewsAgregat: () => dispatch(fetchNewsAgregat())
+    fetchTwitter: () => dispatch(fetchTwitter()),
+    fetchTwitterTeam: () => dispatch(fetchTwitterTeam()),
+    fetchTwitterSentiment: () => dispatch(fetchTwitterSentiment())
   }
 }
 
 const mapStateToProps = (state) => {
 return{
   data: state.twitter.data,
-  agregat:state.twitter.agregat
+  agregat:state.twitter.agregat,
+  team:state.twitter.team
 }}
 
 

@@ -8,14 +8,14 @@
     this.state = {
       dataState: [],
       count:0,
-      trigg:props.fetchNews,
+      trigg:props.fetchTwitter,
       activePage:0,
     }
 
   }
 
   componentWillMount=(props) => {
-    this.props.fetchNews()
+    this.props.fetchTwitter()
   }
 
   componentDidMount() {

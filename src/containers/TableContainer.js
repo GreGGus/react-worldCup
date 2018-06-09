@@ -1,12 +1,12 @@
 import {connect} from 'react-redux'
 import Twitter from '../components/Table'
-import {fetchNews, fetchNewsAgregat} from "../routes/Twitter/modules/twitter"
+import {fetchTwitter, fetchTwitterSentiment} from "../routes/Twitter/modules/twitter"
 import TableTwitter from "../components/Table.js"
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchNews: () => dispatch(fetchNews()),
-    fetchNewsAgregat: () => dispatch(fetchNewsAgregat())
+    fetchTwitter: () => dispatch(fetchTwitter()),
+    fetchTwitterSentiment: () => dispatch(fetchTwitterSentiment())
   }
 }
 
