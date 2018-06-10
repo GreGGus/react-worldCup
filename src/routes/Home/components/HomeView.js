@@ -1,55 +1,68 @@
 import React from 'react'
+import {Country} from './country'
+import {FlippingCard, UserCard, FlippingCardBack, FlippingCardFront} from 'react-ui-cards';
 import './HomeView.scss'
-import {FlippingCard,UserCard,FlippingCardBack, FlippingCardFront} from 'react-ui-cards';
+import {Grid, Col, Nav, Table, NavItem, Pagination, Row} from "react-bootstrap";
 
 class HomeView extends React.PureComponent {
- constructor(props) {
-   console.log("eze",props)
+    constructor(props) {
+        console.log("eze", props)
 
-    super(props)
-    this.state = {
-      dataState: [],
-      count:0,
-      activePage:0,
+        super(props)
+        this.state = {
+            dataState: [],
+            count: 0,
+            activePage: 0,
+        }
     }
-  }
 
-  componentWillMount=(props) => {
-     console.log("eze",props)
+    componentWillMount = (props) => {
+        console.log("eze", props)
 
-    this.props.fetchTwitterTeam()
-  }
+        this.props.fetchTwitterTeam()
+    }
 
-render(){
-console.log("card")
-    const {agregat} = this.props
-        return(
-          <div>
-            <h4>Accueil</h4>
-                 <UserCard
-                      cardClass='float'
-                      href='https://github.com/nukeop'
-                      header='https://i.imgur.com/p5yXGQk.jpg'
-                      avatar='https://i.imgur.com/kFkyYkZ.jpg'
-                      name='Joseph Cheps'
-                      positionName='Firmware Engineer'
-                      stats={[
-                        {
-                          name: 'commits',
-                          value: 365
-                        },
-                        {
-                          name: 'stars',
-                          value: 110
-                        },
-                        {
-                          name: 'repositories',
-                          value: 54
-                        }
-                      ]}
-                    />
-          </div>)
-          }
+    render() {
+        const divStyle = {
+            margin: '5000px',
+            border: '5px solid pink'
+        };
+
+        const {agregat} = this.props
+        console.log("card", this.props)
+
+        return (
+            <div className='card-container test-class-cont'>
+                {Object.keys(Country).map(function (key, index) {
+                        return <UserCard
+                            style={divStyle}
+                            header={Country[key]['header']}
+                            avatar={Country[key]['avatar']}
+                            name={key}
+                            positionName='Confiance'
+                            stats={[
+                                {
+                                    name: 'Negatif',
+                                    value: 12
+                                },
+                                {
+                                    name: 'Neutre',
+                                    value: 8
+                                },
+                                {
+                                    name: 'Positif',
+                                    value: 80
+                                }
+                            ]}
+                        />
+                    }
+                )
+                }
+            </div>
+        )
+    }
 }
+
+
 
 export default HomeView

@@ -33,7 +33,8 @@ export function fetchTwitterTeam(value) {
 
 const initialState = {
   data: {},
-  agregat: {}
+  agregat: {},
+  team:[]
 }
 
 

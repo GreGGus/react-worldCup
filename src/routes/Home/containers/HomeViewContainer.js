@@ -11,8 +11,10 @@ console.log("state")
 }
 
 const mapStateToProps = (state) => {
+console.log("state",state)
+
 return{
-  team:state.twitter.team
+  team:state.team
 }}
 
 
