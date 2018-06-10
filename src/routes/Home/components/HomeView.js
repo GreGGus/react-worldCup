@@ -16,10 +16,13 @@ class HomeView extends React.PureComponent {
     render() {
         const {agregat} = this.props
         const sentimentTotalValue = this.props.team.team ? this.props.team.team.aggregations.tweet.buckets : []
+        const total_hits = this.props.team.team ? this.props.team.team.hits.total : 0
 
         return (
-            <div className='card-container test-class-cont'>
+        <div>
+            <p>{total_hits}</p>
 
+            <div className='card-container test-class-cont'>
             {sentimentTotalValue.map(function(value){
                     const country = value.key === " " ? "NO TEAM" : value.key
                     const header = value.key === " " ? "" : Country[value.key.toLowerCase()]['header']
@@ -60,6 +63,7 @@ class HomeView extends React.PureComponent {
 
                         )})}
             </div>
+      </div>
         )
     }
 }
