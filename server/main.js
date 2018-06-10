@@ -8,6 +8,8 @@ const compress = require('compression')
 
 const app = express()
 app.use(compress())
+app.listen(3000, '0.0.0.0');
+
 
 // ------------------------------------
 // Apply Webpack HMR Middleware
