@@ -9,11 +9,6 @@ import TableContainer from "../../../containers/TableContainer.js"
 class Twitter extends React.PureComponent {
   constructor(props) {
     super(props)
-    this.state = {
-      dataState: [],
-      count:0,
-      activePage:0,
-    }
   }
 
   componentWillMount=(props) => {
@@ -27,10 +22,6 @@ class Twitter extends React.PureComponent {
 
   render() {
     const {agregat} = this.props
-    const {data} = this.props
-    const {dataState,count} =this.state
-
-    console.log("render")
 
     var buckets=[]
     if(agregat){  buckets = agregat.aggregations.tweet.buckets }else { buckets=[] }
@@ -39,7 +30,7 @@ class Twitter extends React.PureComponent {
         <Grid>
           <Row>
             <Col md={12}>
-           {buckets.map((item,index) => { return( <p> Twitter count : {item.key} : {item.doc_count}</p>  )})}
+           {buckets.map((item,index) => { return( <p>  {item.key} : {item.doc_count}</p>  )})}
             <Table>
                 <thead>
                   <th>#</th>

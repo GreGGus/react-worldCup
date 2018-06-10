@@ -6,58 +6,59 @@ import {Grid, Col, Nav, Table, NavItem, Pagination, Row} from "react-bootstrap";
 
 class HomeView extends React.PureComponent {
     constructor(props) {
-        console.log("eze", props)
-
         super(props)
-        this.state = {
-            dataState: [],
-            count: 0,
-            activePage: 0,
-        }
     }
 
     componentWillMount = (props) => {
-        console.log("eze", props)
-
         this.props.fetchTwitterTeam()
     }
 
     render() {
-        const divStyle = {
-            margin: '5000px',
-            border: '5px solid pink'
-        };
-
         const {agregat} = this.props
-        console.log("card", this.props)
+        const sentimentTotalValue = this.props.team.team ? this.props.team.team.aggregations.tweet.buckets : []
 
         return (
             <div className='card-container test-class-cont'>
-                {Object.keys(Country).map(function (key, index) {
-                        return <UserCard
-                            style={divStyle}
-                            header={Country[key]['header']}
-                            avatar={Country[key]['avatar']}
-                            name={key}
-                            positionName='Confiance'
-                            stats={[
-                                {
-                                    name: 'Negatif',
-                                    value: 12
-                                },
-                                {
-                                    name: 'Neutre',
-                                    value: 8
-                                },
-                                {
-                                    name: 'Positif',
-                                    value: 80
-                                }
-                            ]}
-                        />
-                    }
-                )
-                }
+
+            {sentimentTotalValue.map(function(value){
+                    const country = value.key === " " ? "NO TEAM" : value.key
+                    const header = value.key === " " ? "" : Country[value.key.toLowerCase()]['header']
+                    const avatar = value.key === " " ? "" : Country[value.key.toLowerCase()]['avatar']
+                    const score = value.total_score_sentiment.value/value.doc_count
+
+
+                    var sentimentGlobal = ""
+                            if(score <= 0.0)
+                                 sentimentGlobal= "NOT_UNDERSTOOD"
+                                else if (score < 1.4)
+                                sentimentGlobal=  "NEGATIVE"
+                                else if (score <= 1.85)
+                                sentimentGlobal=  "NEUTRAL"
+                                else if (score < 5.0)
+                                sentimentGlobal=  "POSITIVE"
+                                else sentimentGlobal="NOT_UNDERSTOOD"
+
+                       return(<UserCard
+                                                    header={header}
+                                                    avatar={avatar}
+                                                    name={country}
+                                                    stats={[
+                                                        {
+                                                            name: 'Sentiment',
+                                                            value: sentimentGlobal
+                                                        },
+                                                        {
+                                                            name: 'Score',
+                                                            value: score.toFixed(3)
+                                                        },
+                                                        {
+                                                            name: 'Tweets count',
+                                                            value: value.doc_count
+                                                        }
+                                                    ]}
+                                                />
+
+                        )})}
             </div>
         )
     }

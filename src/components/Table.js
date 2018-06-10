@@ -19,7 +19,7 @@
   }
 
   componentDidMount() {
-   this.interval = setInterval(() => this.state.trigg(), 15000);
+  // this.interval = setInterval(() => this.state.trigg(), 15000);
   }
 
    render() {
