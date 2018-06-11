@@ -18,12 +18,19 @@ class HomeView extends React.PureComponent {
         const sentimentTotalValue = this.props.team.team ? this.props.team.team.aggregations.tweet.buckets : []
         const total_hits = this.props.team.team ? this.props.team.team.hits.total : 0
 
+        const sentimentTotalCardSort  = sentimentTotalValue.sort(function(a, b) {
+                console.log("zaaa",a)
+
+            return parseFloat(b.doc_count) - parseFloat(a.doc_count);
+        });
+        console.log("sentimentTotalCardSort",sentimentTotalCardSort)
+
         return (
         <div>
             <p>{total_hits}</p>
 
             <div className='card-container test-class-cont'>
-            {sentimentTotalValue.map(function(value){
+            {sentimentTotalCardSort.map(function(value){
                     const country = value.key === " " ? "NO TEAM" : value.key
                     const header = value.key === " " ? "" : Country[value.key.toLowerCase()]['header']
                     const avatar = value.key === " " ? "" : Country[value.key.toLowerCase()]['avatar']
@@ -40,6 +47,7 @@ class HomeView extends React.PureComponent {
                                 else if (score < 5.0)
                                 sentimentGlobal=  "POSITIVE"
                                 else sentimentGlobal="NOT_UNDERSTOOD"
+
 
                        return(<UserCard
                                                     header={header}
